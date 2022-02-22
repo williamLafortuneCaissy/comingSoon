@@ -34,6 +34,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-image: url("../images/bg-pattern-desktop.svg");
+  background-size: cover;
+  background-position: right;
 }
 
 .footer {
@@ -134,34 +137,78 @@ main p {
   margin-bottom: 2rem;
 }
 
-main .input__wrapper {
-  position: relative;
+.footer {
+  padding: 0 1rem;
 }
 
-main .input__wrapper input {
+.input__wrapper {
+  position: relative;
+  margin-bottom: 1em;
+}
+
+.input__wrapper--error input {
+  border: 2px solid #f96262;
+}
+
+.input__wrapper--error::after {
+  content: "";
+  background-image: url("../images/icon-error.svg");
+  background-size: 1.25rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 3rem;
+  display: block;
+  position: absolute;
+  inset: 0 0 0 auto;
+  right: 4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .input__wrapper--error::after {
+    right: 6rem;
+  }
+}
+
+.input {
   width: 100%;
   border: 1px solid #ce9797;
   padding: 1rem 1.5rem;
+  padding-right: 7rem;
   border-radius: 100px;
 }
 
-main .input__wrapper input::-webkit-input-placeholder {
+@media screen and (min-width: 768px) {
+  .input {
+    padding-right: 9rem;
+  }
+}
+
+.input::-webkit-input-placeholder {
   color: #ce9797;
 }
 
-main .input__wrapper input:-ms-input-placeholder {
+.input:-ms-input-placeholder {
   color: #ce9797;
 }
 
-main .input__wrapper input::-ms-input-placeholder {
+.input::-ms-input-placeholder {
   color: #ce9797;
 }
 
-main .input__wrapper input::placeholder {
+.input::placeholder {
   color: #ce9797;
 }
 
-main .input__wrapper button {
+.input__message {
+  font-size: .8em;
+  color: #f96262;
+  position: absolute;
+  inset: auto auto -1.5em 1.5rem;
+  bottom: -1.5em;
+  left: 1.5rem;
+}
+
+.submit {
   display: inline-block;
   border: none;
   padding: 0;
@@ -176,7 +223,7 @@ main .input__wrapper button {
   text-align: center;
   position: absolute;
   inset: 0 0 0 auto;
-  width: 4em;
+  width: 4rem;
   text-align: center;
   border-radius: 100px;
   display: -ms-grid;
@@ -190,12 +237,12 @@ main .input__wrapper button {
 }
 
 @media screen and (min-width: 768px) {
-  main .input__wrapper button {
-    width: 6em;
+  .submit {
+    width: 6rem;
   }
 }
 
-main .input__wrapper button::before {
+.submit::before {
   content: "";
   position: absolute;
   inset: 0 0 0 0;
@@ -207,15 +254,11 @@ main .input__wrapper button::before {
   opacity: 0;
 }
 
-main .input__wrapper button:hover::before {
+.submit:hover::before {
   opacity: 1;
 }
 
-main .input__wrapper button:active {
+.submit:active {
   -webkit-box-shadow: 0px 10px 10px 0px rgba(206, 151, 151, 0.5);
           box-shadow: 0px 10px 10px 0px rgba(206, 151, 151, 0.5);
-}
-
-.footer {
-  padding: 0 1rem;
 }
